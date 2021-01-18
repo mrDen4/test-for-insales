@@ -1,0 +1,129 @@
+.header {
+    .header__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    .header__burger {
+        display: none;
+
+        @include tablets() {
+            display: flex;
+            border: none;
+            background: none;
+            color: $orange;
+            font-size: 40px;
+        }
+    }
+
+    .header__mobile-menu {
+        width: 80vw;
+        height: 100vh;
+        left: -999px;
+        top: 0;
+        background: #fff;
+        z-index: 1000;
+        position: fixed;
+        padding: 40px 0;
+        transition: .3s;
+        opacity: 0;
+
+        &--active {
+            left: 0;
+            opacity: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .mobile-menu__item {
+            font-size: 20px;
+        }
+    }
+
+    .header__btns-mobile {
+        display: none;
+
+        @include tablets() {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+
+    .header__search-mobile, .header__basket-mobile {
+        display: none;
+        border: none;
+        background: none;
+
+        @include tablets() {
+            display: flex;
+        }
+    }
+
+    .header__nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 33%;
+
+        @include laptop() {
+            width: 38%;
+        }
+
+        @include tablets() {
+            display: none;
+        }
+    }
+
+    .nav__item {
+        .item__link {
+            text-transform: uppercase;
+            font-size: 24px;
+            line-height: 1.2;
+            transition: .3s;
+
+            .link__span {
+                margin-left: 50px;
+
+                @include laptop() {
+                    margin-left: 10px;
+                }
+            }
+
+            &:hover {
+                color: $orange;
+            }
+
+            &--yellow {
+                background: $orange;
+                color: #fff;
+                padding: 16px 30px;
+
+                @include laptop() {
+                    padding: 10px 30px;
+                }
+
+                &:hover {
+                    color: #fff;
+                    opacity: .8;
+                }
+            }
+        }
+
+        .item__search, .item__basket {
+            background: none;
+            border: none;
+            transition: .3s;
+
+            &:hover {
+                border-bottom: 1px solid $orange;
+            }
+        }
+    }
+}
